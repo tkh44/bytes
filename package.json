@@ -1,0 +1,48 @@
+{
+  "umd:name": "bytes",
+  "version": "1.0.0",
+  "name": "@tkh44/bytes",
+  "repository": "tkh44/bytes",
+  "description": "A tiny and fast utility to convert bytes to and from strings.",
+  "unpkg": "dist/index.min.js",
+  "module": "dist/index.mjs",
+  "main": "dist/index.js",
+  "types": "index.d.ts",
+  "license": "MIT",
+  "author": {
+    "name": "Kye Hohenberger",
+    "email": "kye@tkh44.com"
+  },
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "build": "bundt",
+    "test": "uvu -r esm test"
+  },
+  "files": [
+    "*.d.ts",
+    "dist"
+  ],
+  "keywords": [
+    "bytes",
+    "size",
+    "format",
+    "convert",
+    "file size",
+    "storage"
+  ],
+  "devDependencies": {
+    "bundt": "1.1.2",
+    "esm": "3.2.25",
+    "uvu": "0.5.1"
+  }
+}
