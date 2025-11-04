@@ -31,3 +31,12 @@ export function format(num, long) {
 	if (abs < PB) return fmt(abs / TB, pfx, long ? 'terabyte' : 'TB', long);
 	return fmt(abs / PB, pfx, long ? 'petabyte' : 'PB', long);
 }
+
+export function bytes(strings) {
+	var str = '', i = 0, args = arguments;
+	for (; i < strings.length; i++) {
+		str += strings[i];
+		if (i < args.length - 1) str += args[i + 1];
+	}
+	return parse(str);
+}

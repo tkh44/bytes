@@ -160,4 +160,26 @@ test('format() :: long', () => {
 });
 
 
+test('bytes() :: tagged template', () => {
+	// basic usage
+	assert.is(bytes.bytes`100`, 100);
+	assert.is(bytes.bytes`1kb`, 1024);
+	assert.is(bytes.bytes`10MB`, 10485760);
+	assert.is(bytes.bytes`2gb`, 2147483648);
+	assert.is(bytes.bytes`1.5 kb`, 1536);
+
+	// with interpolation
+	assert.is(bytes.bytes`${10}MB`, 10485760);
+	assert.is(bytes.bytes`${1.5}kb`, 1536);
+	assert.is(bytes.bytes`${2} gigabytes`, 2147483648);
+
+	// negative values
+	assert.is(bytes.bytes`-100b`, -100);
+	assert.is(bytes.bytes`${-1.5}kb`, -1536);
+
+	// invalid
+	assert.is(bytes.bytes`☃`, undefined);
+});
+
+
 test.run();
