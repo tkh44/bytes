@@ -125,11 +125,6 @@ maxBuffer: bytes`10MB`
 ```
 
 
-## Credits
-
-This library is adapted from [@lukeed/ms](https://github.com/lukeed/ms) by Luke Edwards. The structure, API design, and implementation approach are directly inspired by that excellent library, but adapted for byte/file size conversions instead of time conversions.
-
-
 ## License
 
 MIT © [Kye Hohenberger](https://github.com/tkh44)
