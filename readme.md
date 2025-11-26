@@ -9,12 +9,6 @@ I loved the API and simplicity of `ms` for time conversions, but needed somethin
 
 ---
 
-This module is delivered as:
-
-* **CommonJS**: [`dist/index.js`](https://unpkg.com/@tkh44/bytes/dist/index.js)
-* **ES Module**: [`dist/index.mjs`](https://unpkg.com/@tkh44/bytes/dist/index.mjs)
-* **UMD**: [`dist/index.min.js`](https://unpkg.com/@tkh44/bytes/dist/index.min.js)
-
 ## Install
 
 ```
