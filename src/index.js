@@ -7,14 +7,15 @@ var RGX = /^(-?(?:\d+)?\.?\d+) *(b(?:ytes?)?)?(k(?:b|ilo(?:bytes?)?)?)?(m(?:b|eg
 
 export function parse(val) {
 	var num, arr = val.toLowerCase().match(RGX);
-	if (arr != null && (num = parseFloat(arr[1]))) {
-		if (arr[3] != null) return num * KB;
-		if (arr[4] != null) return num * MB;
-		if (arr[5] != null) return num * GB;
-		if (arr[6] != null) return num * TB;
-		if (arr[7] != null) return num * PB;
-		return num;
-	}
+	if (arr == null) return;
+	num = parseFloat(arr[1]);
+	if (isNaN(num)) return;
+	if (arr[3] != null) return num * KB;
+	if (arr[4] != null) return num * MB;
+	if (arr[5] != null) return num * GB;
+	if (arr[6] != null) return num * TB;
+	if (arr[7] != null) return num * PB;
+	return num;
 }
 
 function fmt(val, pfx, str, long) {

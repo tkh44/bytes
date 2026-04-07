@@ -30,6 +30,10 @@ test('exports "format" function', () => {
 
 
 test('parse()', () => {
+	parse('0', 0);
+	parse('0b', 0);
+	parse('0kb', 0);
+	parse('0.0kb', 0);
 	parse('100', 100);
 	parse('1kb', 1024);
 	parse('1mb', 1048576);
@@ -55,6 +59,8 @@ test('parse()', () => {
 
 
 test('parse() :: long', () => {
+	parse('0 bytes', 0);
+	parse('0 kilobytes', 0);
 	parse('53 bytes', 53);
 	parse('1 byte', 1);
 	parse('1 kilobyte', 1024);
@@ -162,6 +168,7 @@ test('format() :: long', () => {
 
 test('bytes() :: tagged template', () => {
 	// basic usage
+	assert.is(bytes.bytes`0kb`, 0);
 	assert.is(bytes.bytes`100`, 100);
 	assert.is(bytes.bytes`1kb`, 1024);
 	assert.is(bytes.bytes`10MB`, 10485760);
