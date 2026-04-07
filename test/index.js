@@ -1,6 +1,6 @@
-import { test } from 'uvu';
-import * as assert from 'uvu/assert';
-import * as bytes from '../src';
+const { test } = require('uvu');
+const assert = require('uvu/assert');
+const bytes = require('../dist/index.js');
 
 function parse(input, expect) {
 	const output = bytes.parse(input);
@@ -28,6 +28,11 @@ test('exports "format" function', () => {
 	assert.type(bytes.format, 'function');
 });
 
+test('exports "parse" function for esm', async () => {
+	const esm = await import('../dist/index.mjs');
+	assert.type(esm.parse, 'function');
+	assert.is(esm.parse('0kb'), 0);
+});
 
 test('parse()', () => {
 	parse('0', 0);
@@ -176,6 +181,7 @@ test('bytes() :: tagged template', () => {
 	assert.is(bytes.bytes`1.5 kb`, 1536);
 
 	// with interpolation
+	assert.is(bytes.bytes`${0}kb`, 0);
 	assert.is(bytes.bytes`${10}MB`, 10485760);
 	assert.is(bytes.bytes`${1.5}kb`, 1536);
 	assert.is(bytes.bytes`${2} gigabytes`, 2147483648);

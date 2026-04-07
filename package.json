@@ -2,7 +2,10 @@
   "umd:name": "bytes",
   "version": "1.0.1",
   "name": "@tkh44/bytes",
-  "repository": "tkh44/bytes",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tkh44/bytes.git"
+  },
   "description": "A tiny and fast utility to convert bytes to and from strings.",
   "unpkg": "dist/index.min.js",
   "module": "dist/index.mjs",
@@ -26,7 +29,7 @@
   },
   "scripts": {
     "build": "bundt",
-    "test": "uvu -r esm test"
+    "test": "npm run build && uvu test"
   },
   "files": [
     "*.d.ts",
